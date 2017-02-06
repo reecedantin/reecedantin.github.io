@@ -1,2 +1,2 @@
 # reecedantin.github.io
-reecedantin github page
+This is the repo for Reece Dantin's Github Page
