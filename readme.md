@@ -1,7 +1,5 @@
-# Epoch Flip Clock
-Unix [epoch](https://en.wikipedia.org/wiki/Unix_time) flip clock macOS screensaver
+# Reece's Screensaver
+Mac screensaver for 2 screens with current time and weather
 
-![Epoch Flip Clock Screenshot](https://raw.githubusercontent.com/chrstphrknwtn/epoch-flip-clock/master/epochFlipClock.png)
-
-## Install
-Download [`Epock Flip Clock.saver`](https://github.com/chrstphrknwtn/epoch-flip-clock/releases/download/0.0.3/Epoch.Flip.Clock.saver.zip)
+[Screen 1](https://reecedantin.github.io/Webview)
+[Screen 2](https://reecedantin.github.io/Webview/index2.html)
