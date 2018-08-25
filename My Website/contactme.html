@@ -1,0 +1,18 @@
+<html>
+<head>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var simpleHref = document.getElementById("simpleHref");
+
+            var url_string = window.location.href
+            var url = new URL(url_string);
+            var name = url.searchParams.get("subject");
+            var body = url.searchParams.get("body");
+
+            window.location.replace("mailto:reecedantin@gmail.com?subject="+ name + "&body=" + body)
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
