@@ -36,7 +36,7 @@ function getTimeText() {
 
     h = (h > 12) ? h - 12 : h;
     //h = (h < 10) ? "0" + h : h;
-
+    h = (h == 0) ? 12 : h;
 
     m = (m < 10) ? "0" + m : m;
 
