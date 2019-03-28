@@ -226,10 +226,21 @@ function updatePlaylist(data) {
      })
      .then(response => response.json())
      .then(function (playlistdata) {
+         var maxLength = 35
          var trackName = data.item.name
+         if (trackName.length > maxLength) {
+             trackName = trackName.substr(0,maxLength) + '...';
+         }
          console.log(trackName)
+
          document.getElementsByClassName("trackName")[0].innerHTML = trackName
+
          var artistName = data.item.artists[0].name + " – " + data.item.album.name
+
+         if (artistName.length > maxLength) {
+             artistName = artistName.substr(0,maxLength) + '...';
+         }
+
          console.log(artistName)
          document.getElementsByClassName("trackArtist")[0].innerHTML = artistName
          var trackImage = data.item.album.images[0].url
