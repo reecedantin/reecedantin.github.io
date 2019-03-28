@@ -55,10 +55,44 @@ weatherDescription {
     -webkit-backface-visibility: hidden;
 }
 
-img {
+trackName {
+    position: fixed;
+    right: 325px;
+    color: #e1e1e1;
+    font-weight: bold;
+    font-size: 2vw;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-backface-visibility: hidden;
+}
+
+playlistName {
+    position: fixed;
+    right: 325px;
+    color: #e1e1e1;
+    font-weight: 200;
+    font-size: 2vw;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-backface-visibility: hidden;
+}
+
+trackArtist {
+    position: fixed;
+    right: 325px;
+    color: #e1e1e1;
+    font-weight: 200;
+    font-size: 2vw;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-backface-visibility: hidden;
+}
+
+.weatherIcon {
     position: fixed;
     top: 465px;
     left: 155px;
+}
+
+.trackImage {
+    position: fixed;
 }
 
 embed {
