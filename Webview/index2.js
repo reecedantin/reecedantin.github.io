@@ -8,6 +8,7 @@ var wNow;
 var wNext = [];
 var wImg = [];
 var weatherResponse;
+var spotifyfailed = false
 
 var accessToken = ""
 var refreshToken = ""
@@ -39,7 +40,7 @@ function setupWeather() {
 
 
             var forcast = document.createElement('embed');
-            forcast.src = "https://embed.windy.com/embed2.html?lat=33.773&lon=-84.418&zoom=10&level=surface&overlay=radar&menu=false&message=false&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=47.680&detailLon=-122.121&metricWind=default&metricTemp=default"
+            forcast.src = "https://embed.windy.com/embed2.html?lat=30.240&lon=-81.385&zoom=9&level=surface&overlay=radar&menu=false&message=false&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=47.680&detailLon=-122.121&metricWind=default&metricTemp=default"
             if(response.properties.periods[0].shortForecast.indexOf("Rain") != -1 || response.properties.periods[0].shortForecast.indexOf("Shower") != -1 || response.properties.periods[0].shortForecast.indexOf("Thunderstorm") != -1){
                 document.body.appendChild(forcast)
                 weatherDescription.style.width = "700px";
@@ -61,7 +62,7 @@ function setupWeather() {
 
 function fetchResults(callback) {
     //https://api.weather.gov/alerts/active/zone/GAZ044
-    fetch('https://api.weather.gov/points/33.7717008,-84.3726049/forecast/hourly')
+    fetch('https://api.weather.gov/points/30.240005,-81.385262/forecast/hourly')
        .then(response => response.json())
        .then(json => callback(null, json))
        .catch(error => callback(error, null))
@@ -184,35 +185,43 @@ function updateWeather() {
 }
 
 function updateTrack() {
-    fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-       method: 'GET',
-       headers: {
-         "Content-type": "application/json",
-         "Accept": "application/json",
-         "Authorization" : "Bearer " + accessToken
-       }
-     })
-     .then(response => response.json())
-     .then(function (data) {
-         if(!data.error) {
-             if(data.is_playing) {
-                 if(data.item.name != document.getElementsByClassName("trackName")[0].innerHTML) {
-                     updatePlaylist(data)
+    if (spotifyfailed == false) {
+        fetch("https://api.spotify.com/v1/me/player/currently-playing", {
+           method: 'GET',
+           headers: {
+             "Content-type": "application/json",
+             "Accept": "application/json",
+             "Authorization" : "Bearer " + accessToken
+           }
+         })
+         .then(response => response.json())
+         .then(function (data) {
+             if(!data.error) {
+                 if(data.is_playing) {
+                     if(data.item.name != document.getElementsByClassName("trackName")[0].innerHTML) {
+                         updatePlaylist(data)
+                     }
+                 } else {
+                     document.getElementsByClassName("trackName")[0].innerHTML = ""
+                     document.getElementsByClassName("trackArtist")[0].innerHTML = ""
+                     document.getElementsByClassName("trackImage")[0].src = ""
+                     document.getElementsByClassName("playlistName")[0].innerHTML = ""
+                     document.getElementsByClassName("playlistImage")[0].src = ""
                  }
              } else {
-                 document.getElementsByClassName("trackName")[0].innerHTML = ""
-                 document.getElementsByClassName("trackArtist")[0].innerHTML = ""
-                 document.getElementsByClassName("trackImage")[0].src = ""
-                 document.getElementsByClassName("playlistName")[0].innerHTML = ""
-                 document.getElementsByClassName("playlistImage")[0].src = ""
+                 getNewAccessToken()
              }
-         } else {
-             getNewAccessToken()
-         }
-     })
-     .catch(function (error) {
-       console.log('Request failed', error);
-     });
+         })
+         .catch(function (error) {
+           // spotifyfailed = true
+           console.log('Request failed', error);
+           document.getElementsByClassName("trackName")[0].innerHTML = ""
+           document.getElementsByClassName("trackArtist")[0].innerHTML = ""
+           document.getElementsByClassName("trackImage")[0].src = ""
+           document.getElementsByClassName("playlistName")[0].innerHTML = ""
+           document.getElementsByClassName("playlistImage")[0].src = ""
+         });
+    }
 }
 
 function updatePlaylist(data) {
@@ -263,7 +272,7 @@ updateTrack()
 setInterval(updateTrack, 3000);
 
 setupWeather();
-setInterval(updateWeather, 20000);
+setInterval(updateWeather, 200000);
 
 
 function getNewAccessToken() {
@@ -278,11 +287,17 @@ function getNewAccessToken() {
      })
      .then(response => response.json())
      .then(function (data) {
-         console.log(data)
-         accessToken = data.access_token
-         setTimeout(getNewAccessToken, data.expires_in * 1000)
+         console.log(data.error)
+         if(data.error != 'invalid_grant') {
+             console.log(data)
+             accessToken = data.access_token
+             setTimeout(getNewAccessToken, data.expires_in * 1000)
+         } else {
+             spotifyfailed = true
+         }
      })
      .catch(function (error) {
+       spotifyfailed = true
        console.log('Request failed', error);
      });
 }
