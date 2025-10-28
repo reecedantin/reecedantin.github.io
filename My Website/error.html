@@ -1,34 +1,159 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 - Page Not Found | Reece Dantin</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q72HKD043P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        <meta HTTP-EQUIV="Refresh" CONTENT="0; URL=index.html">
-        <title>Not Found</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+      gtag('config', 'G-Q72HKD043P');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    
+    <style>
+        :root {
+            --primary: #FD8C0B;
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.1);
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+        }
 
-        <title>Reece Dantin</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        body {
+            font-family: var(--font-mono);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
 
-        <!-- Custom fonts for this template -->
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        .error-terminal {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 0;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
 
-        <!-- Plugin CSS -->
-        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+        .terminal-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-        <!-- Custom styles for this template -->
-        <link href="css/freelancer.min.css" rel="stylesheet">
-    </head>
-    <body>
-          <div class="container">
-            <h1 class="text-uppercase mb-0">404 error</h1>
-          </div>
-    </body>
+        .terminal-controls {
+            display: flex;
+            gap: 8px;
+        }
 
+        .control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .close { background: #ff5f57; }
+        .minimize { background: #ffbd2e; }
+        .maximize { background: #28ca42; }
+
+        .terminal-title {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .terminal-body {
+            padding: 24px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .prompt {
+            color: var(--primary);
+        }
+
+        .error-code {
+            color: #ff5f57;
+            font-size: 48px;
+            font-weight: 600;
+            margin: 16px 0;
+        }
+
+        .error-message {
+            color: var(--text-secondary);
+            margin: 16px 0;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 8px 16px;
+            background: var(--primary);
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .home-link:hover {
+            background: #E67A00;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-terminal">
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+            </div>
+            <div class="terminal-title">error@404:~$</div>
+        </div>
+        <div class="terminal-body">
+            <div><span class="prompt">reece@dev:~$</span> ls -la /page</div>
+            <div>ls: cannot access '/page': No such file or directory</div>
+            <br>
+            <div><span class="prompt">reece@dev:~$</span> echo $ERROR_CODE</div>
+            <div class="error-code">404</div>
+            <br>
+            <div><span class="prompt">reece@dev:~$</span> cat error.log</div>
+            <div class="error-message">Page not found. The requested resource does not exist on this server.</div>
+            <br>
+            <div><span class="prompt">reece@dev:~$</span> cd /home</div>
+            <a href="/" class="home-link">Return Home</a>
+        </div>
+    </div>
+</body>
 </html>
