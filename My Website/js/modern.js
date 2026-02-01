@@ -245,30 +245,6 @@ function updateProjectsWithRepoData(repos) {
         }
     });
 }
-const techStack = [
-    { name: 'AWS', level: 99 },
-    { name: 'GenAI', level: 95 },
-    { name: 'Python', level: 90 },
-    { name: 'AWS CDK', level: 85 },
-    { name: 'JavaScript', level: 85 },
-    { name: 'Docker', level: 85 },
-    { name: 'M365', level: 90 },
-    { name: 'Salesforce', level: 60 }
-];
-
-function renderTechStack() {
-    const techGrid = document.getElementById('tech-grid');
-
-    techStack.forEach(tech => {
-        const techItem = document.createElement('div');
-        techItem.className = 'tech-item';
-        techItem.innerHTML = `
-            <div class="tech-name">${tech.name}</div>
-            <div class="tech-level">${tech.level}%</div>
-        `;
-        techGrid.appendChild(techItem);
-    });
-}
 
 // Projects Data
 const projects = [
@@ -541,7 +517,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     createParticles();
     setTimeout(typeCommand, 1000);
-    renderTechStack();
     renderProjects();
     renderContactForm();
     fetchGitHubStats();
@@ -570,7 +545,7 @@ function renderContactForm() {
             </form>
         </div>
     `;
-    
+
     // Add focus effects
     const inputs = contactForm.querySelectorAll('input, textarea');
     inputs.forEach(input => {
@@ -581,18 +556,18 @@ function renderContactForm() {
             input.style.borderColor = 'var(--border)';
         });
     });
-    
+
     // Initialize EmailJS
     emailjs.init('fCqSgAxobHn4FDSk6');
-    
+
     // Add form submission handler
-    document.getElementById('contact-form-element').addEventListener('submit', function(e) {
+    document.getElementById('contact-form-element').addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const btn = this.querySelector('button[type="submit"]');
         btn.textContent = 'Sending...';
         btn.disabled = true;
-        
+
         emailjs.sendForm('service_ogfq10h', 'template_0wbj7oo', this)
             .then(() => {
                 btn.textContent = 'Message Sent!';

@@ -1,18 +1,265 @@
-<html>
-    <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q72HKD043P"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
 
-          gtag('config', 'G-Q72HKD043P');
-        </script>
-        
-        <meta http-equiv="refresh" content="0; url=resume.pdf" />
-    </head>
-    <body>
-        <p><a href="resume.pdf">Click to see resume</a></p>
-    </body>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q72HKD043P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Q72HKD043P');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <script>
+        // window.onload = function() {
+        //     const link = document.createElement('a');
+        //     link.href = 'resume.pdf';
+        //     link.download = 'Reece_Dantin_Resume.pdf';
+        //     link.click();
+        // };
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 9pt;
+            line-height: 1.25;
+            color: #333;
+        }
+
+        .container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in 0.5in 0 0.5in;
+        }
+
+        h1 {
+            font-size: 16pt;
+            color: #333;
+            margin-bottom: 2px;
+            text-align: left;
+        }
+
+        .contact {
+            text-align: left;
+            color: #666;
+            font-size: 8.5pt;
+            margin-bottom: 8px;
+        }
+
+        .section {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 9pt;
+            color: white;
+            background: rgb(239, 137, 36);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            padding: 8px 4px;
+            min-width: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-content {
+            font-size: 9pt;
+            flex: 1;
+        }
+
+        h3 {
+            font-size: 9.5pt;
+            color: #333;
+            margin: 4px 0 1px 0;
+        }
+
+        .job-title {
+            font-style: italic;
+            color: #555;
+            font-size: 8.5pt;
+        }
+
+        .date {
+            float: right;
+            color: #666;
+            font-size: 8.5pt;
+            font-weight: bold;
+        }
+
+        ul {
+            margin-left: 16px;
+            margin-top: 2px;
+            margin-bottom: 4px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 1px;
+        }
+
+        .skills p {
+            margin-bottom: 3px;
+            line-height: 1.3;
+        }
+
+        .skills strong {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 4px;
+        }
+
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            @page {
+                size: 8.5in 11in;
+                margin: 0;
+            }
+
+            .container {
+                width: 8.5in;
+                max-width: 8.5in;
+                padding: 0.5in 0.5in 0 0.5in;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Reece Dantin</h1>
+        <div class="contact">Washington, DC • reecedantin@gmail.com • 904-885-0589 • reecedantin.com •
+            github.com/reecedantin</div>
+
+        <p style="margin-bottom: 10px;">Solutions Architect and Robotics Engineer with 5+ years building production
+            AI/ML systems and 2+ years deploying embodied AI on humanoid platforms. Led development of Unitree G1
+            humanoid robot with 43-DOF manipulation using VLA models, imitation learning, and teleoperation systems.
+            Proven track record shipping safety-critical robotics software with sensor fusion (LiDAR, RGB-D, tactile),
+            low-latency cloud inference, and distributed deep learning pipelines. Deployed autonomous systems to 10+
+            live production environments globally with 10K+ human interactions. Expert in modern Python, C++, and
+            production ML deployment with PyTorch on real-world robotic systems.</p>
+
+        <div class="section">
+            <h2>Work Experience</h2>
+            <div class="section-content">
+                <h3>Amazon Web Services (AWS) <span class="date">Washington, DC</span></h3>
+                <div class="job-title">Solutions Architect - Embodied AI & Robotics Lead <span class="date">Dec 2023 -
+                        Present</span></div>
+                <div class="job-title">Associate Solutions Architect <span class="date">May 2020 - Dec 2023</span></div>
+                <p style="margin-top: 4px; margin-bottom: 2px;"><strong>Robotics & Embodied AI Platform
+                        (2023-Present):</strong></p>
+                <ul>
+                    <li>Led end-to-end development and deployment of production humanoid robotics platform on Unitree G1
+                        (43-DOF) with 3-finger dexterous hands, deployed to 10+ global conferences with 10K+ real-world
+                        human interactions</li>
+                    <li>Deployed and fine-tuned Nvidia Gr00t VLA models for multi-task manipulation; developed imitation
+                        learning pipeline training PyTorch neural networks from teleoperation data using distributed
+                        deep learning on AWS (SageMaker, EC2 GPU clusters)</li>
+                    <li>Built VR/AR whole-body teleoperation system using Unity and WebXR achieving 120Hz control
+                        frequency; architected low-latency cloud inference pipeline with <80ms latency for real-time
+                            VLM/VLA deployment across multiple regions</li>
+                    <li>Shipped safety-critical software with robust failure recovery, collision avoidance, and
+                        multi-sensor fusion (LiDAR, RealSense RGB-D, tactile sensors) using ROS2 for autonomous
+                        operation in unstructured environments</li>
+                    <li>Managed cross-functional team of 7 engineers scaling platform across multiple embodiments;
+                        generated $44M in qualified sales pipeline through robotics demonstrations</li>
+                </ul>
+                <p style="margin-bottom: 2px;"><strong>Enterprise Solutions Architecture & AI Innovation
+                        (2020-Present):</strong></p>
+                <ul>
+                    <li>Gold Member, AWS Technical Field Community (Robotics & GenAI) - recognized as top-tier technical
+                        expert in robotics and generative AI domains across global AWS field organization (2026)</li>
+                    <li>Achieved 103% quota attainment on $40M goal (2025); named SA of the Year for SMB Atlantic
+                        Region, Q3 2025 SA of the Quarter NAMER, and AWSome All-Star award recipient Q2 2025</li>
+                    <li>Developed AWS Sales MCP Server - built first agentic AI system for AWS Sales integrating
+                        Salesforce and Outlook, deployed to 6,400 daily active users, saving estimated 600K hours/year
+                        (300 FTE equivalent)</li>
+                    <li>Selected for competitive Tech U early career accelerator program (2020); promoted to Solutions
+                        Architect I (Dec 2023)</li>
+                </ul>
+
+                <h3>Radius Technologies, Inc. <span class="date">Atlanta, GA</span></h3>
+                <div class="job-title">Chief Technology Officer <span class="date">Aug 2018 - Aug 2020</span></div>
+                <ul>
+                    <li>Developed production computer vision system for sub-millimeter finger measurement using iPhone
+                        depth sensors and custom segmentation models with Metal compute acceleration; shipped mobile app
+                        that reached #3 top apps in the US with 100K+ users; architected full-stack infrastructure and
+                        managed team of 3 engineers</li>
+                </ul>
+
+                <h3>Verizon <span class="date">Basking Ridge, NJ & Alpharetta, GA</span></h3>
+                <div class="job-title">Supply Chain Augmented Reality Intern <span class="date">Jun 2019 - Aug
+                        2019</span></div>
+                <ul>
+                    <li>Developed production AR application for head-mounted displays with integrated SLAM algorithm for
+                        real-time localization and mapping; presented to CIO and C-suite executives</li>
+                </ul>
+                <div class="job-title">Mobile Innovations Team Intern <span class="date">Jun 2018 - Aug 2018</span>
+                </div>
+                <ul>
+                    <li>Built cross-platform React Native app with personalized UI and voice integration (Alexa,
+                        Chatbot); presented to CIO</li>
+                </ul>
+                <div class="job-title">Salesforce Department Intern <span class="date">Jun 2017 - Aug 2017</span></div>
+                <ul>
+                    <li>Designed AWS proof-of-concept architecture for Salesforce integration; won Southeast Region
+                        Intern Hackathon competing against 100+ interns</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education & Skills</h2>
+            <div class="section-content">
+                <p><strong>Georgia Institute of Technology</strong> <span class="date">Atlanta, GA</span><br>
+                    Bachelor of Science in Computer Science <em
+                        style="float: right; color: #666; font-size: 8.5pt; font-weight: bold;">May 2020</em></p>
+                <p><strong>Santa Fe College</strong> <span class="date">Gainesville, FL</span><br>
+                    Associate in Arts in Computer Science <em
+                        style="float: right; color: #666; font-size: 8.5pt; font-weight: bold;">Aug 2017</em></p>
+
+                <div class="skills" style="margin-top: 8px;">
+                    <p><strong>Programming Languages:</strong> Python (NumPy, PyTorch, TensorFlow), C++, C#, JavaScript,
+                        Java, Swift</p>
+                    <p><strong>Robotics & ML:</strong> Deep Learning, Imitation Learning, Reinforcement Learning,
+                        Vision-Language Models (VLMs), Vision-Language-Action Models (VLAs), Computer Vision, SLAM,
+                        Sensor Fusion, Teleoperation</p>
+                    <p><strong>Frameworks & Tools:</strong> PyTorch, TensorFlow, ROS2, Nvidia Gr00t, OpenCV, Unity,
+                        WebXR, AWS SageMaker, EC2, S3, Lambda</p>
+                    <p><strong>Sensors & Hardware:</strong> Unitree G1 Humanoid, 3-Finger Dexterous Hands, LiDAR,
+                        RealSense RGB-D, Tactile Pressure Sensors, 7-DOF Arms, 43-DOF Humanoids</p>
+                    <p><strong>Certifications:</strong> AWS Solutions Architect - Professional • AWS TFC Gold Member -
+                        Robotics & Generative AI (2026)</p>
+                    <p><strong>Other:</strong> Georgia Tech Hackathon Winner - College of Computing Spring 2018 •
+                        Published iOS/Android Developer - 3+ apps deployed • Eagle Scout - Boy Scouts of America</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
