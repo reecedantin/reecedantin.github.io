@@ -269,7 +269,7 @@ const projects = [
     },
     {
         title: 'Zombie Run Game',
-        description: 'Award-winning AR survival game that transforms your real environment into a zombie apocalypse. Winner of Georgia Tech Get A Move On Hackathon 2019',
+        description: 'Award-winning AR survival game that transforms your real environment into a zombie apocalypse. Winner of Georgia Tech Get A Move On Hackathon 2018',
         tech: ['Unity', 'C#', 'AR', 'iOS'],
         image: 'img/portfolio/zombierunsmall.png',
         github: 'https://github.com/reecedantin/ZombieRun',
